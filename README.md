@@ -45,8 +45,11 @@ graph TD
 ├── tools.py          # Tool definitions, destructive action rules, retries & fallbacks
 ├── database.py       # Audit logging with PostgreSQL support & SQLite fallback
 ├── main.py           # Interactive CLI demonstrating safe tasks and HITL confirmation
+├── app.py            # Streamlit visual dashboard with approval buttons and live audit feed
 ├── evaluate.py       # Reliability evaluation harness across multi-step scenarios
 ├── test_agent.py     # Unit and integration test suite (pytest)
+├── docker-compose.yml# Single-command PostgreSQL setup
+├── INTERVIEW_GUIDE.md# Technical interview Q&A and architecture talking points
 ├── requirements.txt  # Dependencies
 └── .env.example      # Environment configuration (OpenAI API key, Database URL)
 ```
@@ -62,9 +65,13 @@ pip install -r requirements.txt
 
 *(Note: The agent works 100% out-of-the-box using the built-in deterministic planner and local SQLite audit log. To use live OpenAI GPT-4o-mini or PostgreSQL, copy `.env.example` to `.env` and set your credentials).*
 
-### 2. Run the Demo
+### 2. Run the Demo (CLI or Web UI)
 ```bash
+# Terminal CLI demo:
 python main.py
+
+# Or launch the interactive Web Dashboard:
+streamlit run app.py
 ```
 This runs two multi-step scenarios:
 1. **Safe Multi-Step Task**: Fetches user data, encounters a simulated API failure, and recovers automatically via retries.
