@@ -81,3 +81,4 @@ def test_database_audit_logs():
     logs = get_logs()
     assert isinstance(logs, list)
     assert len(logs) > 0
+

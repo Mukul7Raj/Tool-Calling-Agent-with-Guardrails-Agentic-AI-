@@ -65,3 +65,4 @@ def get_logs(task_id: Optional[str] = None) -> List[Dict[str, Any]]:
     rows = cur.fetchall()
     conn.close()
     return [{"timestamp": r[0], "task_id": r[1], "step": r[2], "action": r[3], "details": r[4], "status": r[5]} for r in rows]
+
